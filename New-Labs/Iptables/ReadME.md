@@ -33,7 +33,8 @@ sudo iptables -F
 ```
 before the code:
 ```
-erfiboy@Erfi-laptop:~$ sudo iptables -L
+sudo iptables -L
+
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination         
 
@@ -47,6 +48,7 @@ DROP       all  --  anywhere             mct01s05-in-f78.1e100.net
 after the code:
 ```
 sudo iptables -L
+
 Chain INPUT (policy ACCEPT)
 target     prot opt source               destination         
 
