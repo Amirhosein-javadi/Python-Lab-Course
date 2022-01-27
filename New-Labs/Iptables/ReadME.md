@@ -58,3 +58,5 @@ target     prot opt source               destination
 Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 ```
+
+# Block the ip IP of google with iptables -A
