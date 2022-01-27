@@ -27,3 +27,7 @@ ping: sendmsg: Operation not permitted
 ping: sendmsg: Operation not permitted
 ping: sendmsg: Operation not permitted
 ```
+# removing the rules
+```
+sudo iptables -F
+```
