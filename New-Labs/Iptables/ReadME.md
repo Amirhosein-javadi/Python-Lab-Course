@@ -66,3 +66,5 @@ ping google.com
 PING google.com (142.250.185.174) 56(84) bytes of data.
 ```
 We didn't get any response because we drop the packages from the source.
+
+# Iptables -L
