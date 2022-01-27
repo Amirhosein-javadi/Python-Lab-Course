@@ -89,18 +89,19 @@ sudo iptables -A INPUT -s 192.168.2.0/24 -j DROP
 ```
 iptables -A INPUT -i lo -p all -j ACCEPT 
 ```
-
+It is a rule so your computer to be able to access itself through the loopback interface.
 
 ```
 iptables -A INPUT -p all -s localhost -i eth0 -j DROP
 ```
-
+It is a rule so that drop alll the packages from localhost and eth0 interface and all protocols.
 
 ```
 iptables -A INPUT -s 0/0 -i eth0 -d 192.168.1.1 -p TCP -j ACCEPT
 ```
-
+It is a rule that accept the packets using TCP protocols and are from localhost and interface eth0.
 
 ```
 iptables -A FORWARD -s 0/0 -i eth0 -d 192.168.1.58 -o eth1 -p TCP --sprt 1024:65535 --dport:80 -j ACCEPT:
 ```
+It forward all the packets from the port 1024-65535 and the interface eth0 and source localhost to the destination of 192.168.1.58 and port 80 and the Tcp protocol.
