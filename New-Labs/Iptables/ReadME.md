@@ -68,3 +68,15 @@ PING google.com (142.250.185.174) 56(84) bytes of data.
 We didn't get any response because we drop the packages from the source.
 
 # Iptables -L
+lists your current rules in iptables.
+
+'''
+target     prot opt source               destination         
+DROP       all  --  fra24s11-in-f14.1e100.net  anywhere            
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination 
+'''
