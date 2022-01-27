@@ -81,3 +81,26 @@ target     prot opt source               destination
 ```
 New rule added!
 
+# Blocking 192.168.2.x
+```
+sudo iptables -A INPUT -s 192.168.2.0/24 -j DROP
+```
+# Rules
+```
+iptables -A INPUT -i lo -p all -j ACCEPT 
+```
+
+
+```
+iptables -A INPUT -p all -s localhost -i eth0 -j DROP
+```
+
+
+```
+iptables -A INPUT -s 0/0 -i eth0 -d 192.168.1.1 -p TCP -j ACCEPT
+```
+
+
+```
+iptables -A FORWARD -s 0/0 -i eth0 -d 192.168.1.58 -o eth1 -p TCP --sprt 1024:65535 --dport:80 -j ACCEPT:
+```
