@@ -1,0 +1,69 @@
+C:\Users\Hamed>cd desktop
+
+C:\Users\Hamed\Desktop>mkdir Django
+
+C:\Users\Hamed\Desktop>cd Django
+
+C:\Users\Hamed\Desktop\Django>python -m venv my_env
+
+C:\Users\Hamed\Desktop\Django>my_env\Scripts\activate
+
+(my_env) C:\Users\Hamed\Desktop\Django>pip install django
+
+(my_env) C:\Users\Hamed\Desktop\Django>django-admin.py startproject lab4 .
+
+
+
+
+//now we have created a new project called lab4:
+we can see a new file called manage.py have alse been created which is used to run django commands.
+and in lab4 we can see our django project files.//
+
+
+
+
+(my_env) C:\Users\Hamed\Desktop\Django>python manage.py migrate
+
+(my_env) C:\Users\Hamed\Desktop\Django>manage.py runserver
+
+(my_env) C:\Users\Hamed\Desktop\Django>Python manage.py startapp testapp
+
+(my_env) C:\Users\Hamed\Desktop\Django>python manage.py runserver
+
+then we use vscode editor:
+
+
+first in setting.py:
+we add 'testapp' in INSTALLED_APPS:
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'testapp'
+]
+
+
+then we edit veiws.py:
+from django.shortcuts import render
+from django.http import HttpResponse
+# Create your views here.
+def myView(request):
+    return HttpResponse('Hello this is a testapp')
+
+
+
+and finally we edit urls.py:
+from django.contrib import admin
+from django.urls import path
+from testapp.views import myView
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('testapp/', myView),
+]
+
+Now we see "Hello this is a testapp" When we go to the address :  http://127.0.0.1:8000/testapp/
+DONE!
+
