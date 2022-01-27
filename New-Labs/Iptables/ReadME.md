@@ -59,4 +59,10 @@ Chain OUTPUT (policy ACCEPT)
 target     prot opt source               destination
 ```
 
-# Block the ip IP of google with iptables -A
+# Block the IP of google with Iptables -A
+```
+sudo iptables -A INPUT -s 142.250.185.174 -j DROP
+ping google.com
+PING google.com (142.250.185.174) 56(84) bytes of data.
+```
+We didn't get any response because we drop the packages from the source.
