@@ -117,3 +117,13 @@ iptables -A INPUT -p icmp -m icmp --icmp-type address-mask-request -j DROP
 iptables -A INPUT -p icmp -m icmp --icmp-type timestamp-request -j DROP
 iptables -A INPUT -p icmp -m icmp --icmp-type 8 -m limit --limit 5/second -j ACCEPT
 ```
+# Only enable Input ssh
+```
+sudo iptables -I OUTPUT -m tcp -p tcp --dport 22 -j DROP
+```
+
+# Stop TCP/UDP traffic
+```
+sudo iptables -A INPUT -p tcp -j DROP
+sudo iptables -A INPUT -p udp -j DROP
+```
