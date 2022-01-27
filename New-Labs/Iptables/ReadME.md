@@ -127,3 +127,7 @@ sudo iptables -I OUTPUT -m tcp -p tcp --dport 22 -j DROP
 sudo iptables -A INPUT -p tcp -j DROP
 sudo iptables -A INPUT -p udp -j DROP
 ```
+# Protecting a server
+1) firewall 
+2) locking down everything other than SSH
+3) limit the maxmimum number of packages/min.
