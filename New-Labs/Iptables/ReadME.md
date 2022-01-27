@@ -1,6 +1,6 @@
 # **IPtables**
 
-# ping google.com
+# Ping google.com
 ```
 ping google.com
 
@@ -27,7 +27,19 @@ ping: sendmsg: Operation not permitted
 ping: sendmsg: Operation not permitted
 ping: sendmsg: Operation not permitted
 ```
-# removing the rules
+# Removing the rules
 ```
 sudo iptables -F
+```
+after that code:
+```
+sudo iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
 ```
