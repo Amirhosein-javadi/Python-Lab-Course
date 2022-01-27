@@ -31,7 +31,20 @@ ping: sendmsg: Operation not permitted
 ```
 sudo iptables -F
 ```
-after that code:
+before the code:
+```
+erfiboy@Erfi-laptop:~$ sudo iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination         
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination         
+DROP       all  --  anywhere             mct01s05-in-f78.1e100.net 
+```
+after the code:
 ```
 sudo iptables -L
 Chain INPUT (policy ACCEPT)
