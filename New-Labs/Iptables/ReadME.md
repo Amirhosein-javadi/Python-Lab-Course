@@ -105,3 +105,15 @@ It is a rule that accept the packets using TCP protocols and are from localhost 
 iptables -A FORWARD -s 0/0 -i eth0 -d 192.168.1.58 -o eth1 -p TCP --sprt 1024:65535 --dport:80 -j ACCEPT:
 ```
 It forward all the packets from the port 1024-65535 and the interface eth0 and source localhost to the destination of 192.168.1.58 and port 80 and the Tcp protocol.
+
+# Block http and https
+```
+iptables -I OUTPUT -m tcp -p tcp --dport 443 -j DROP
+iptables -I OUTPUT -m tcp -p tcp --dport 80 -j DROP
+```
+# Limit ping packages to 5/min
+```
+iptables -A INPUT -p icmp -m icmp --icmp-type address-mask-request -j DROP
+iptables -A INPUT -p icmp -m icmp --icmp-type timestamp-request -j DROP
+iptables -A INPUT -p icmp -m icmp --icmp-type 8 -m limit --limit 5/second -j ACCEPT
+```
